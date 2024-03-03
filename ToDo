@@ -1,0 +1,18 @@
+Création du projet final "CopOrPass"
+
+BACK: 
+    Initialisation de GitHub: 
+        ☐ Liaison entre le Git et le dossier
+        ☐ Push sur GitHub
+    Intialisation du projet back: 
+        ☐ Installation "Npm init -y"
+        ☐ Installation des dépendances nécessaires au projet
+        ☐ Installation de Git Flow (pour la gestion des branches)
+    Configuration du BACK:
+        ☐ Création du fichier .gitignore
+        ☐ Création du fichier .env
+        ☐ Création du fichier .babelrc
+    
+
+
+FRONT:
