@@ -12,6 +12,18 @@ BACK:
         ☐ Création du fichier .gitignore
         ☐ Création du fichier .env
         ☐ Création du fichier .babelrc
+    Création du Starter:
+        ☐ Création du fichier index.js, nécessaire au bon fonction du projet
+    Création de l'architecture du Back:
+        ☐ Création des models
+        ☐ Création des routes
+        ☐ Création des controllers
+        ☐ Création des middlewares
+    Tests :
+        ☐ End-points
+        ☐ Authentification 
+
+    
     
 
 
