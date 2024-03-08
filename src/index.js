@@ -3,6 +3,7 @@ import dotenv from "dotenv"; // pour appeler les elements caches de notre fichie
 import mongoose from "mongoose"; // pour pouvoir utiliser notre BDD de MongoDB.
 import cors from "cors"; // permette d'ouvrir l'API à des requêtes provenant de domaines différents.
 import userRouter from "./routes/userRoute";
+import { productRouter } from "./routes/productRoute";
 
 dotenv.config(); //pour appeler la configuration de l'environnement.
 
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/auth", userRouter);
+app.use("/product", productRouter);
 
 app.get("/", (req, res) => {
   res.send("Welcome on CoP's API");
