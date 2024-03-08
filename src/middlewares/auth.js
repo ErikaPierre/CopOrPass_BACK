@@ -3,7 +3,7 @@ import "dotenv/config";
 
 const auth = async (req, res, next) => {
   const tokerHeader = req.headers.authorization;
-  const token = tokerHeader.split("")[1];
+  const token = tokerHeader.split(" ")[1];
 
   if (!token) {
     return res

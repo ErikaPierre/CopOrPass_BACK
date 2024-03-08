@@ -5,10 +5,12 @@ const productSchema = new Schema(
   {
     image: String,
     dateRelease: String,
+    brand: String,
     name: String,
     modeleName: String,
     color: String,
     price: Number,
+    comments: [{ type: Schema.Types.ObjectId, ref: "comments" }],
   },
   { timestamps: true }
 );
