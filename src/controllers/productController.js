@@ -1,5 +1,4 @@
 import { Product } from "../models/productModel";
-import path from "path";
 
 const getAllProducts = async (req, res) => {
   try {
@@ -39,7 +38,6 @@ const createProduct = async (req, res) => {
     const newProduct = new Product({
       image: image,
       dateRelease: productData.dateRelease,
-      name: productData.name,
       modeleName: productData.modeleName,
       color: productData.color,
       price: productData.price,

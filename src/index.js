@@ -4,7 +4,6 @@ import mongoose from "mongoose"; // pour pouvoir utiliser notre BDD de MongoDB.
 import cors from "cors"; // permette d'ouvrir l'API à des requêtes provenant de domaines différents.
 import userRouter from "./routes/userRoute";
 import { productRouter } from "./routes/productRoute";
-import { auth } from "./middlewares/auth";
 import { CommentRouter } from "./routes/commentRoute";
 
 dotenv.config(); //pour appeler la configuration de l'environnement.
@@ -27,7 +26,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/auth", userRouter);
-app.use("/products", auth, productRouter);
+app.use("/products", productRouter);
 app.use("/comments", CommentRouter);
 
 app.get("/", (req, res) => {
