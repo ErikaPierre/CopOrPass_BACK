@@ -1,4 +1,5 @@
 import { Product } from "../models/productModel";
+import path from "path";
 
 const getAllProducts = async (req, res) => {
   try {
@@ -31,16 +32,22 @@ const getOneProduct = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  const { image, dateRelease, name, modeleName, color, price } = req.body;
   try {
-    const newProduct = await Product.create({
+    const productData = req.body;
+    const image = req.file.path;
+
+    const newProduct = new Product({
       image: image,
-      dateRelease: dateRelease,
-      name: name,
-      modeleName: modeleName,
-      color: color,
-      price: price,
+      dateRelease: productData.dateRelease,
+      name: productData.name,
+      modeleName: productData.modeleName,
+      color: productData.color,
+      price: productData.price,
+      brand: productData.brand,
+      comments: [],
     });
+    console.log(newProduct);
+    await newProduct.save();
     res.json({
       newProduct,
       message: "Your product has been succefully create ",
@@ -48,7 +55,7 @@ const createProduct = async (req, res) => {
   } catch (error) {
     res.json({
       error,
-      message: "Oooops ... Your product hasn't been create. There is a problem",
+      message: error.message,
     });
   }
 };

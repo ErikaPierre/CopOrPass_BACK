@@ -4,7 +4,7 @@ import path from "path";
 // Définir la configuration de stockage pour les images
 const imageStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, "..", "uploads", "images");
+    const uploadPath = path.join(__dirname, "..", "upload");
     cb(null, uploadPath);
   },
   filename: (req, file, cb) => {

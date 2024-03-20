@@ -27,8 +27,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/auth", userRouter);
-app.use("/product", auth, productRouter);
-app.use("/comment", CommentRouter);
+app.use("/products", auth, productRouter);
+app.use("/comments", CommentRouter);
 
 app.get("/", (req, res) => {
   res.send("Welcome on CoP's API");
