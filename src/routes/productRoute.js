@@ -12,7 +12,8 @@ import {
 
 const productRouter = Router();
 
-productRouter.get("/all", getAllProducts);
+productRouter.get("/all-releases", getAllProducts);
+productRouter.get("/all-drops", getAllProducts);
 productRouter.get("/get-one/:id", getOneProduct);
 productRouter.post("/create-product", auth, uploadImage.single('image'), createProduct);
 productRouter.put("/update/:id_product", auth, uploadImage.single('image'), editProduct);
