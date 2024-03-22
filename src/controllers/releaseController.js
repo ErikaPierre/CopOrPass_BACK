@@ -1,11 +1,11 @@
-import { Product } from "../models/productModel";
+import Release from "../models/releaseModel";
 
-const getAllProducts = async (req, res) => {
+const getAllReleases = async (req, res) => {
   try {
-    const products = await Product.find();
+    const releases = await Release.find();
     res.json({
-      products,
-      message: "Here's a list of all your products.",
+      releases,
+      message: "Here's a list of all your releases.",
     });
   } catch (error) {
     res.json({
@@ -15,9 +15,9 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-const getOneProduct = async (req, res) => {
+const getOneRelease = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
+    const product = await Release.findById(req.params.id);
     res.json({
       product,
       message: "This is your product",
@@ -30,25 +30,25 @@ const getOneProduct = async (req, res) => {
   }
 };
 
-const createProduct = async (req, res) => {
+const createRelease = async (req, res) => {
   try {
-    const productData = req.body;
+    const releaseData = req.body;
     const image = req.file.path;
 
-    const newProduct = new Product({
+    const newRelease = new Release({
       image: image,
-      dateRelease: productData.dateRelease,
-      modeleName: productData.modeleName,
-      color: productData.color,
-      price: productData.price,
-      brand: productData.brand,
+      dateRelease: releaseData.dateRelease,
+      modeleName: releaseData.modeleName,
+      color: releaseData.color,
+      price: releaseData.price,
+      brand: releaseData.brand,
       comments: [],
     });
-    console.log(newProduct);
-    await newProduct.save();
+    console.log(newRelease);
+    await newRelease.save();
     res.json({
-      newProduct,
-      message: "Your product has been succefully create ",
+      newRelease,
+      message: "Your release has been succefully create ",
     });
   } catch (error) {
     res.json({
@@ -73,33 +73,33 @@ const createProduct = async (req, res) => {
 //   }
 // };
 
-const editProduct = async (req, res) => {
+const editRelease = async (req, res) => {
   try {
-    const updateProduct = await Product.findByIdAndUpdate(
-      { _id: req.params.id_product },
+    const updateRelease = await Release.findByIdAndUpdate(
+      { _id: req.params.id_release },
       req.body,
       { new: true }
     );
     res.json({
-      updateProduct,
-      message: "Your product has been succefully updated",
+      updateRelease,
+      message: "Your release has been succefully updated",
     });
   } catch (error) {
     res.json({
       error,
-      message: "Ooooops ... A problem was detected when updating your product.",
+      message: "Ooooops ... A problem was detected when updating your release.",
     });
   }
 };
 
-const deleteProduct = async (req, res) => {
+const deleteRelease = async (req, res) => {
   try {
-    const removeProduct = await Product.findOneAndDelete({
-      _id: req.params.id_product,
+    const removeRelease = await Release.findOneAndDelete({
+      _id: req.params.id_release,
     });
     res.json({
-      removeProduct,
-      message: "Your product has been succefully deleted",
+      removeRelease,
+      message: "Your release has been succefully deleted",
     });
   } catch (error) {
     res.json({
@@ -111,9 +111,9 @@ const deleteProduct = async (req, res) => {
 };
 
 export {
-  getAllProducts,
-  getOneProduct,
-  createProduct,
-  editProduct,
-  deleteProduct,
+  getAllReleases,
+  getOneRelease,
+  createRelease,
+  editRelease,
+  deleteRelease,
 };

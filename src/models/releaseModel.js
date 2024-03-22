@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
-const productSchema = new Schema(
+const releaseSchema = new Schema(
   {
     image: String,
     dateRelease: String,
@@ -14,6 +14,6 @@ const productSchema = new Schema(
   { timestamps: true }
 );
 
-const Product = mongoose.model("Product", productSchema);
+const Release = mongoose.model("Release", releaseSchema);
 
-export { Product };
+export default Release;
