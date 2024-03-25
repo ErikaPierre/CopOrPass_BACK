@@ -8,6 +8,7 @@ const userSchema = new Schema({
     type: String,
     min: [6, "Your password is too small, minimum 6 characters"],
   },
+  // role: { type: String, default: "user", enum: ["user", "admin"] },
 });
 
 userSchema.methods.crypto = async (password) => {
