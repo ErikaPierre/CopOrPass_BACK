@@ -5,6 +5,7 @@ import cors from "cors"; // permette d'ouvrir l'API à des requêtes provenant d
 import path from "path";
 import userRouter from "./routes/userRoute";
 import releaseRouter from "./routes/releaseRoute";
+import dropRouter from "./routes/dropRoute";
 
 dotenv.config(); //pour appeler la configuration de l'environnement.
 
@@ -20,13 +21,14 @@ async function main() {
 
 app.set("view engine", "ejs");
 
-// app.use(express.static("public"));
-app.use(express.static(path.join(__dirname, "..", "/upload", "image")));
+app.use(express.static("public"));
+// app.use(express.static(path.join(__dirname, "..", "/upload", "image")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 app.use("/user", userRouter);
 app.use("/all", releaseRouter);
+app.use("/all", dropRouter)
 // app.use("/comments", CommentRouter);
 
 app.get("/", (req, res) => {

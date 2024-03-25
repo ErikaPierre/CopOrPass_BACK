@@ -8,7 +8,6 @@ const releaseSchema = new Schema(
     brand: String,
     modeleName: String,
     color: String,
-    price: Number,
     comments: [{ type: Schema.Types.ObjectId, ref: "comments" }],
   },
   { timestamps: true }
